@@ -13,7 +13,7 @@ function App() {
   
   
   useEffect( ()=>{
-    fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${location.lat}&lon=${location.long}&units=metric&exclude=minutely,alerts&appid=db23c2558ca37d58501d6fbb8379d4fa`)
+    fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${location.lat}&lon=${location.long}&units=metric&exclude=minutely,alerts&appid=KEY`)
     .then(response => response.json())
     .then(data => {
       setResponse(data);
@@ -23,27 +23,15 @@ function App() {
 
   return (
     <div className="app">
-      {/* <form>
-        <label>
-          Latitude:
-          <input type="text" name="Latitude" />
-        </label>
-        <label>
-          Longitude:
-          <input type="text" name="Longitude" />
-        </label>
-
-        
-        <button onClick={()=> setlocation({lat:34, long:45})}> Change </button>
-        
-      </form> */}
       
-      <div className="column">
-      <Days response= {response.daily[0]}></Days>
-      <Days response= {response.daily[1]}> </Days>
-      <Days response= {response.daily[2]}></Days>
-      <Days response= {response.daily[3]}></Days>
-      <Days response= {response.daily[4]}></Days>
+      <div>
+        <div className="column">
+        <Days response= {response.daily[0]}></Days>
+        <Days response= {response.daily[1]}> </Days>
+        <Days response= {response.daily[2]}></Days>
+        <Days response= {response.daily[3]}></Days>
+        <Days response= {response.daily[4]}></Days>
+        </div>
       </div>
       
      
